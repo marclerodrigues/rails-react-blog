@@ -1,0 +1,37 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    volumes:
+      - .:/app
+      - bundle_path:/bundle
+    environment:
+      - BUNDLE_PATH=/bundle/vendor
+    command: bundle exec rails server -b 0.0.0.0
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'postgres'
+      - 'webpack'
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  webpack:
+    image: jmfirth/webpack
+    command: webpack-dev-server --hot --inline --progress --host 0.0.0.0 --config config/webpack.config.js
+    ports:
+      - '3808:3808'
+    volumes:
+      - .:/app
+
+volumes:
+  bundle_path:
+  postgres:
