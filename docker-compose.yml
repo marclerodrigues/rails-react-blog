@@ -26,11 +26,13 @@ services:
 
   webpack:
     image: jmfirth/webpack
-    command: webpack-dev-server --hot --inline --progress --host 0.0.0.0 --config config/webpack.config.js
+    command: webpack-dev-server --hot --inline --progress --color --host 0.0.0.0 --config config/webpack/development.js
     ports:
-      - '3808:3808'
+      - '8080:8080'
     volumes:
       - .:/app
+    env_file:
+      - .env
 
 volumes:
   bundle_path:
