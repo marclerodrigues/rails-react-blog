@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "post#index"
 
   resources :post, only: :show
+  resources :comment, only: [:index, :create]
 
   get "*path", to: "post#index"
 end
