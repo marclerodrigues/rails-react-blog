@@ -1,0 +1,12 @@
+.comment {
+  border-top: 1px solid $gray;
+  padding: .5em .5em 0;
+
+  &__username {
+    font-weight: bold;
+  }
+
+  &__content {
+    margin-left: 1em;
+  }
+}

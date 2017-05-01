@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 
 const CommentList = ({ comments }) => (
-  <div className="comments_list">
+  <div className="comments-list">
+    <h3 className="comments-list__head">
+      Comments ({`${ comments.length }`})
+    </h3>
     { comments.map( comment =>
       <Comment
         key={ comment.id }
@@ -14,7 +17,6 @@ const CommentList = ({ comments }) => (
 );
 
 const commentShape = PropTypes.shape({
-  id: PropTypes.number.isRequired,
   username: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired
 }).isRequired;
