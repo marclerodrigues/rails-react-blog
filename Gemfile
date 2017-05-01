@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 gem 'haml-rails'
 
@@ -52,6 +51,3 @@ group :test do
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'rails-controller-testing'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
