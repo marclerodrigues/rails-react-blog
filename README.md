@@ -1,24 +1,41 @@
-# README
+# Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A full featured blog using Ruby, Rails, React and Redux.
 
-Things you may want to cover:
+!!! Warning: This is under development! So be careful, things may change a little. !!!
 
-* Ruby version
+# Features
 
-* System dependencies
+* Post listing
+* Post detail page
+* Comments list at post show page
+* Comment form at post show page
+* Mark post as favorites
+* Rails admin to manage posts
+* Bootstrap to add styling
 
-* Configuration
+# Development with Docker
 
-* Database creation
+Run the command below to fully setup the project:
 
-* Database initialization
+`sh bin/docker_setup`
 
-* How to run the test suite
+It assumes you have your machine properly configured with docker and docker-compose.
 
-* Services (job queues, cache servers, search engines, etc.)
+The you can run:
 
-* Deployment instructions
+`docker-compose up`
 
-* ...
+And visit: `https://localhost:3000` to see the app running.
+
+To run the backend test just:
+
+`docker-comopose exec web bundle exec rspec`
+
+# Contributing
+
+* Fork it ( https://github.com/marclerodrigues/rails-react-blog/fork )
+* Create your feature branch (git checkout -b my-new-feature)
+* Commit your changes (git commit -am 'Add some feature')
+* Push to the branch (git push origin my-new-feature)
+* Create a new Pull Request
