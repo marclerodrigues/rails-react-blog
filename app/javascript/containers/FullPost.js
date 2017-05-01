@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPost } from '../actions';
+import { fetchPost, markPost } from '../actions';
 import Post from '../components/FullPost.js';
 import CommentList from './CommentList';
 
@@ -15,8 +15,15 @@ class FullPost extends Component {
     dispatch(fetchPost(match.params.id));
   }
 
+  handleFavorite(event) {
+    event.preventDefault();
+    const { dispatch, post } = this.props;
+    dispatch(markPost(post));
+  }
+
   render() {
-    const { post, isFetching } = this.props;
+    const { post, isFetching, favorites } = this.props;
+    const favorited = favorites.filter(fav => fav.id === post.id);
 
     return (
       <div>
@@ -25,6 +32,21 @@ class FullPost extends Component {
             key={post.id}
             { ...post }
           />
+        }
+
+        { post && favorited.length === 0 &&
+          <a
+            href="#"
+            onClick={ event => this.handleFavorite(event)}
+          >
+            Mark as Favorite
+          </a>
+        }
+
+        { post && favorited.length > 0 &&
+
+          <p>Marked as Favorite</p>
+
         }
 
         { !isFetching && post &&
@@ -39,11 +61,12 @@ class FullPost extends Component {
 
 function mapStateToProps(state) {
   const { post } = state;
-  const { isFetching, post: item } = post || { isFetching: false, post: {} };
+  const { isFetching, post: item, favorites } = post || { isFetching: false, post: {}, favorites: [] };
 
   return {
     post: item,
-    isFetching
+    isFetching,
+    favorites
   };
 };
 

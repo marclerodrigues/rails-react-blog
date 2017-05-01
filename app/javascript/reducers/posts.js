@@ -8,21 +8,24 @@ import {
   REQUEST_COMMENTS,
   RECEIVE_COMMENTS,
   NEW_COMMENT_REQUEST,
-  NEW_COMMENT_SUCCESS
+  NEW_COMMENT_SUCCESS,
+  MARK_AS_FAVORITE
   } from '../actions';
 
-function post(state = { isFetching: false, post: {} }, action) {
+function post(state = { isFetching: false, post: {}, favorites: [] }, action) {
   switch (action.type) {
     case RECEIVE_POST:
       return Object.assign({}, state, { isFetching: false, post: action.post });
     case REQUEST_POST:
       return Object.assign({}, state, { isFetching: true, post: {} });
+    case MARK_AS_FAVORITE:
+      return Object.assign({}, state, { favorites: state.favorites.concat(action.post) } );
     default:
       return state;
   };
 }
 
-function posts(state = { isFetching: false, items: [] }, action) {
+function posts(state = { isFetching: false, items: [], favorites: [] }, action) {
   switch (action.type) {
     case RECEIVE_POSTS:
       return Object.assign({}, state, { isFetching: false, items: action.posts });

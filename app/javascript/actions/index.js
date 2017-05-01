@@ -12,6 +12,8 @@ export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const NEW_COMMENT_REQUEST = 'NEW_COMMENT_REQUEST';
 export const NEW_COMMENT_SUCCESS = 'NEW_COMMENT_SUCCESS';
 
+export const MARK_AS_FAVORITE = 'MARK_AS_FAVORITE';
+
 export function requestPosts() {
   return {
     type: REQUEST_POSTS
@@ -66,6 +68,13 @@ export function newCommentSuccess(json) {
   };
 };
 
+export function markAsFavorite(post) {
+  return {
+    type: MARK_AS_FAVORITE,
+    post
+  };
+};
+
 export function fetchPosts() {
   return dispatch => {
     dispatch(requestPosts());
@@ -100,4 +109,8 @@ export function createComment(comment) {
     return axios.post('/comment', comment)
       .then(response => dispatch(newCommentSuccess(response)));
   };
+};
+
+export function markPost(post) {
+  return dispatch => dispatch(markAsFavorite(post));
 };
