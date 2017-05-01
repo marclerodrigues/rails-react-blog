@@ -25,7 +25,11 @@ RSpec.describe PostController, type: :controller do
 
       it "returns the correct body" do
         expected_body = [
-          { id: post.id, title: post.title }
+          {
+            id: post.id,
+            title: post.title,
+            created_at: post.created_at
+          }
         ].to_json
 
         expect(response.body).to eq(expected_body)

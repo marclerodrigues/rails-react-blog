@@ -1,6 +1,6 @@
 class PostController < ApplicationController
   def index
-    @posts = Post.order(created_at: :desc).select(:id, :title).all
+    @posts = Post.order(created_at: :desc).select(:id, :title, :created_at).all
 
     respond_to do |format|
       format.html
