@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 gem 'haml-rails'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
