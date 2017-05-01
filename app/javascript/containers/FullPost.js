@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchPost } from '../actions';
 import Post from '../components/FullPost.js';
+import CommentList from './CommentList';
 
 class FullPost extends Component {
   constructor() {
@@ -23,6 +24,12 @@ class FullPost extends Component {
           <Post
             key={post.id}
             { ...post }
+          />
+        }
+
+        { !isFetching && post &&
+          <CommentList
+            postId={post.id}
           />
         }
       </div>
