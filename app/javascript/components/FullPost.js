@@ -9,17 +9,17 @@ class FullPost extends Component {
 
     return (
       <div>
-        <Link to='/'>
-          Back
+        <Link to='/' className="btn btn-primary">
+          Back to Post List
         </Link>
 
         <div className="full-post">
           <h2 className="full-post__title">{ title }</h2>
+          <h3 className="full-post__date">
+            { createdAt.toDateString() }
+          </h3>
           <div className="full-post__content">
             { content }
-          </div>
-          <div className="full-post__details">
-            Created at: { createdAt.toString() }
           </div>
         </div>
       </div>

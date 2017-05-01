@@ -1,0 +1,22 @@
+.full-post {
+  &__title {
+    font-size: 2.5em;
+  }
+
+  &__date {
+    color: $gray;
+    font-size: 1.125em;
+  }
+
+  &__content {
+    font-size: 1.125em;
+  }
+}
+
+.post-action {
+  margin: 1em 0;
+
+  &__marked {
+    color: $green;
+  }
+}

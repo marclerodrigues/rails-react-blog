@@ -26,34 +26,40 @@ class FullPost extends Component {
     const favorited = favorites.filter(fav => fav.id === post.id);
 
     return (
-      <div>
-        { post &&
-          <Post
-            key={post.id}
-            { ...post }
-          />
-        }
+      <div className="container">
+        <div className="col-md-2"></div>
+        <div className="col-md-8">
+          { post &&
+            <Post
+              key={post.id}
+              { ...post }
+            />
+ }
+          <hr />
+          <div className="post-action">
+            { post && favorited.length === 0 &&
+              <a
+                href="#"
+                className="btn btn-success post-action__mark"
+                onClick={ event => this.handleFavorite(event)}
+              >
+                Mark Post as Favorite
+              </a>
+            }
 
-        { post && favorited.length === 0 &&
-          <a
-            href="#"
-            onClick={ event => this.handleFavorite(event)}
-          >
-            Mark as Favorite
-          </a>
-        }
+            { post && favorited.length > 0 &&
+              <p className="post-action__marked">
+                <span className="glyphicon glyphicon-ok"></span> Marked as Favorite
+              </p>
+            }
+          </div>
 
-        { post && favorited.length > 0 &&
-
-          <p>Marked as Favorite</p>
-
-        }
-
-        { !isFetching && post &&
-          <CommentList
-            postId={post.id}
-          />
-        }
+          { !isFetching && post &&
+            <CommentList
+              postId={post.id}
+            />
+          }
+        </div>
       </div>
     );
   }
