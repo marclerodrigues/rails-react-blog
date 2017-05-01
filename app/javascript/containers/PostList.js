@@ -24,7 +24,7 @@ class PostList extends Component {
         }
 
         {!isFetching && posts.length === 0 &&
-          <h2>Empty</h2>
+          <h2>No posts.</h2>
         }
 
         { posts.length > 0 &&
