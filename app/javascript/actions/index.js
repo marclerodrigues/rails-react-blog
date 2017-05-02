@@ -110,7 +110,3 @@ export function createComment(comment) {
       .then(response => dispatch(newCommentSuccess(response)));
   };
 };
-
-export function markPost(post) {
-  return dispatch => dispatch(markAsFavorite(post));
-};

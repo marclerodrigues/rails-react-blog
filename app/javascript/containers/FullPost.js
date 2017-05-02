@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPost, markPost } from '../actions';
+import { fetchPost, markAsFavorite } from '../actions';
 import Post from '../components/FullPost.js';
 import CommentList from './CommentList';
 
@@ -18,7 +18,7 @@ class FullPost extends Component {
   handleFavorite(event) {
     event.preventDefault();
     const { dispatch, post } = this.props;
-    dispatch(markPost(post));
+    dispatch(markAsFavorite(post));
   }
 
   render() {
