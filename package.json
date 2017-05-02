@@ -46,7 +46,8 @@
     "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "tests": "bundle exec rspec && jest"
   },
   "jest": {
     "testPathIgnorePatterns": [

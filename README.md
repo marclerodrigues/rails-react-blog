@@ -34,7 +34,15 @@ To add new posts you can go to `http://localhost:3000/admin`, where you can mana
 
 To run the tests just:
 
-`docker-comopose exec web bundle exec rspec`
+`docker-compose exec web yarn tests`
+
+To run just the frontend tests:
+
+`docker-compose exec web yarn test`
+
+or just the backend tests:
+
+`docker-compose exec web bundle exec rspec`
 
 # Contributing
 
