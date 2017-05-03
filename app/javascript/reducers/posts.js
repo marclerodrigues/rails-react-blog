@@ -25,7 +25,7 @@ function post(state = { isFetching: false, post: {}, favorites: [] }, action) {
   };
 }
 
-function posts(state = { isFetching: false, items: [], favorites: [] }, action) {
+function posts(state = { isFetching: false, items: [] }, action) {
   switch (action.type) {
     case RECEIVE_POSTS:
       return Object.assign({}, state, { isFetching: false, items: action.posts });
