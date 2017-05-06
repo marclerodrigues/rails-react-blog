@@ -7,14 +7,12 @@ const PostList = ({ posts }) => (
     <div className="row">
       <div className="col-md-3"></div>
       <div className="col-md-6">
-        <div id="postlist">
-          { posts.map( post =>
-            <Post
-              key={ post.id }
-              { ...post }
-            />
-           ) }
-        </div>
+        { posts.map( post =>
+          <Post
+            key={ post.id }
+            { ...post }
+          />
+         ) }
       </div>
       <div className="col-md-3"></div>
     </div>
