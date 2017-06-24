@@ -23,28 +23,28 @@ describe('components', () => {
   describe('PostList', () => {
     const { props, enzymeWrapper } = setup();
 
-    it('renders a container div', () => {
-      const container = enzymeWrapper.find('div.container');
+    it('renders a post list div', () => {
+      const container = enzymeWrapper.find('div.post-list');
 
       expect(container).toHaveLength(1);
     });
 
-    it('renders a row div', () => {
-      const row = enzymeWrapper.find('div.row');
+    it('renders two post div', () => {
+      const posts = enzymeWrapper.find('div.post');
 
-      expect(row).toHaveLength(1);
+      expect(posts).toHaveLength(2);
     });
 
-    it('renders two medium columns with width of 3', () => {
-      const mediumColumns = enzymeWrapper.find('div.col-md-3');
+    it('renders post div with a grey id', () => {
+      const post = enzymeWrapper.find('div#grey');
 
-      expect(mediumColumns).toHaveLength(2);
+      expect(post).toHaveLength(1);
     });
 
-    it('renders a medium column with with of 6', () => {
-      const mediumColumn = enzymeWrapper.find('div.col-md-6');
+    it('renders post div with a white id', () => {
+      const post = enzymeWrapper.find('div#white');
 
-      expect(mediumColumn).toHaveLength(1);
+      expect(post).toHaveLength(1);
     });
 
     describe('children components', () => {

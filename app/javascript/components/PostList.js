@@ -2,20 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Post from './Post';
 
+const postContainerId = index => (
+  (index % 2 === 0) ? 'grey' : 'white'
+);
+
 const PostList = ({ posts }) => (
-  <div className="container">
-    <div className="row">
-      <div className="col-md-3"></div>
-      <div className="col-md-6">
-        { posts.map( post =>
+  <div className="post-list">
+    {
+      posts.map((post, index) => (
+        <div id={ postContainerId(index) } className="post" key={index}>
           <Post
             key={ post.id }
             { ...post }
           />
-         ) }
-      </div>
-      <div className="col-md-3"></div>
-    </div>
+        </div>
+      ))
+    }
   </div>
 );
 
