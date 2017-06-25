@@ -2,9 +2,17 @@
 <html>
   <head>
     <title><%= yield :title %></title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured blog using Rails, React and Redux!">
+    <meta name="author" content="Marcle Rodrigues">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'stanley-main', media: 'all' %>
   </head>
 
   <body>

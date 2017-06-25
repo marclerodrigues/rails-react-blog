@@ -15,13 +15,13 @@ describe('components', () => {
     const { enzymeWrapper } = setup();
 
     it('renders correctly the nav element', () => {
-      const nav = enzymeWrapper.find('nav.navbar.navbar-default');
+      const nav = enzymeWrapper.find('div.navbar.navbar-inverse.navbar-static-top');
 
       expect(nav).toHaveLength(1);
     });
 
-    it('renders a container fluid element', () => {
-      const container = enzymeWrapper.find('div.container-fluid');
+    it('renders a container element', () => {
+      const container = enzymeWrapper.find('div.container');
 
       expect(container).toHaveLength(1);
     });
@@ -46,9 +46,9 @@ describe('components', () => {
       });
 
       it('renders li element correctly', () => {
-        const li = ul.find('li.active');
+        const li = ul.find('li');
 
-        expect(li).toHaveLength(1);
+        expect(li).toHaveLength(4);
       });
     });
 
@@ -62,7 +62,7 @@ describe('components', () => {
       it('renders logo link with correct props', () => {
         const expectedProps = {
           className: 'navbar-brand',
-          children: ' Foozin Blog ',
+          children: 'MY BLOG',
           to: '/',
           replace: false
         };
@@ -72,10 +72,7 @@ describe('components', () => {
 
       it('renders home link with correct props', () => {
         const span = <span className='sr-only'>(current)</span>;
-        const children = [
-          'Home ',
-          span
-        ];
+        const children = 'Home';
 
         const expectedProps = {
           children,

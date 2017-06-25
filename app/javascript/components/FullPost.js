@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import formattedDate from '../common/formattedDate';
 
-class FullPost extends Component {
-  render() {
-    let { title, content, created_at } = this.props;
-    let createdAt = new Date(created_at);
-
-    return (
-      <div>
-        <Link to='/' className="btn btn-primary">
-          Back to Post List
-        </Link>
-
-        <div className="full-post">
-          <h2 className="full-post__title">{ title }</h2>
-          <h3 className="full-post__date">
-            { createdAt.toDateString() }
-          </h3>
-          <div className="full-post__content">
-            { content }
+const FullPost = ({ title, content, created_at }) => (
+  <div id="white">
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-8 col-lg-offset-2">
+          <p><img src="assets/user.png" width="50px" height="50px"></img> <ba>Marcle Rodrigues</ba></p>
+          <p><bd>{ formattedDate(created_at) }</bd></p>
+          <h4>{ title }</h4>
+          <p><img className="img-responsive" src="assets/blog01.jpg" alt=""></img></p>
+          <div className="post-content">
+            <p>{ content }</p>
           </div>
+          <br />
+          <p><bt>TAGS: <a href="#">Wordpress</a> - <a href="#">Web Design</a></bt></p>
+          <hr />
+          <p><Link to="/"># Back</Link></p>
         </div>
       </div>
-    );
-  }
+    </div>
+  </div>
+);
+
+FullPost.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+  created_at: PropTypes.string
 };
 
 export default FullPost;

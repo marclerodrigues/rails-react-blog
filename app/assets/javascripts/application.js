@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require hover.zoom.conf
+//= require hover.zoom
 //= require rails-ujs
 //= require_tree .
