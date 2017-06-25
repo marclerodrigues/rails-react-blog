@@ -9,25 +9,22 @@ const formattedDate = date => {
 };
 
 const Post = ({ id, title, created_at }) => (
-  <div className="panel post-panel">
-    <div className="panel-heading">
-      <div className="text-center">
-        <div className="row">
-          <div className="col-sm-9">
-            <h3 className="pull-left">{ title }</h3>
-          </div>
-          </div>
+  <div className="container">
+    <div className="row">
+      <div className="col-lg-8 col-lg-offset-2">
+        <p>
+          <img src="/assets/user.png" width="50px" height="50px"></img> <ba>Marcle Rodrigues</ba>
+        </p>
+        <p><bd>{ formattedDate(created_at) }</bd></p>
+        <h4>{ title }</h4>
+        <div className="post-description">
+          <p><b>Spider-Man</b> is a fictional character, a comic book superhero that appears in comic books published by Marvel Comics. Created by writer-editor Stan Lee and writer-artist Steve Ditko, he first appeared in Amazing Fantasy #15 (cover-dated Aug. 1962). </p>
+          <p>Lee and Ditko conceived the character as an orphan being raised by his Aunt May and Uncle Ben, and as a teenager, having to deal with the normal struggles of adolescence in addition to those of a costumed crimefighter.</p>
         </div>
-    </div>
-
-    <div className="panel-body">
-      <Link to={ `/${id}` } className="btn btn-primary" >
-        Read post
-      </Link>
-    </div>
-
-    <div className="panel-footer">
-      <span className="label label-default">{ formattedDate(created_at) }</span>
+        <p>
+          <Link to={`/${id}`}>Continue Reading...</Link>
+        </p>
+      </div>
     </div>
   </div>
 );

@@ -25,19 +25,18 @@ describe('components', () => {
       const link = enzymeWrapper.find('Link');
       const expectedLinkProps = {
         to: '/1',
-        className: 'btn btn-primary',
         replace: false,
-        children: 'Read post'
+        children: 'Continue Reading...'
       };
 
       expect(link.props()).toEqual(expectedLinkProps);
     });
 
     describe('title', () => {
-      const title = enzymeWrapper.find('h3');
+      const title = enzymeWrapper.find('h4');
 
-      it('renders the correct class', () => {
-        expect(title.hasClass('pull-left')).toBe(true);
+      it('renders correctly', () => {
+        expect(title).toHaveLength(1);
       });
 
       it('renders the correct text', () => {
@@ -45,19 +44,30 @@ describe('components', () => {
       });
     });
 
-    describe('created_at', () => {
-      const created_at = enzymeWrapper.find('span');
+    describe('description', () => {
+      const title = enzymeWrapper.find('div.post-description');
 
-      it('renders the correct classes', () => {
-        expect(created_at.hasClass('label')).toBe(true);
-        expect(created_at.hasClass('label-default')).toBe(true);
+      it('renders correctly', () => {
+        expect(title).toHaveLength(1);
+      });
+
+      it.skip('renders the correct text', () => {
+        expect(title.text()).toEqual(props.title);
+      });
+    });
+
+    describe('created_at', () => {
+      const createdAt = enzymeWrapper.find('bd');
+
+      it('renders correctly', () => {
+        expect(createdAt).toHaveLength(1);
       });
 
       it('renders the correct value', () => {
         const date = new Date(props["created_at"]);
         const expectedText = date.toDateString();
 
-        expect(created_at.text()).toEqual(expectedText);
+        expect(createdAt.text()).toEqual(expectedText);
       });
     });
   });
