@@ -27,38 +27,39 @@ class FullPost extends Component {
 
     return (
       <div className="container">
-        <div className="col-md-2"></div>
-        <div className="col-md-8">
+        <div>
           { post &&
             <Post
               key={post.id}
               { ...post }
             />
- }
+          }
           <hr />
-          <div className="post-action">
-            { post && favorited.length === 0 &&
-              <a
-                href="#"
-                className="btn btn-success post-action__mark"
-                onClick={ event => this.handleFavorite(event)}
-              >
-                Mark Post as Favorite
-              </a>
-            }
+          <div className="col-lg-8 col-lg-offset-2">
+            <div className="post-action">
+              { post && favorited.length === 0 &&
+                <a
+                  href="#"
+                  className="btn btn-success post-action__mark"
+                  onClick={ event => this.handleFavorite(event)}
+                >
+                  Mark Post as Favorite
+                </a>
+              }
 
-            { post && favorited.length > 0 &&
-              <p className="post-action__marked">
-                <span className="glyphicon glyphicon-ok"></span> Marked as Favorite
-              </p>
+              { post && favorited.length > 0 &&
+                <p className="post-action__marked">
+                  <span className="glyphicon glyphicon-ok"></span> Marked as Favorite
+                </p>
+              }
+            </div>
+
+            { !isFetching && post &&
+              <CommentList
+                postId={post.id}
+              />
             }
           </div>
-
-          { !isFetching && post &&
-            <CommentList
-              postId={post.id}
-            />
-          }
         </div>
       </div>
     );

@@ -21,23 +21,22 @@ describe('components', () => {
   describe('FullPost', () => {
     const { props, enzymeWrapper } = setup();
 
-    it('renders full post div', () => {
-      const div = enzymeWrapper.find('div.full-post');
+    it('renders a div with white id', () => {
+      const div = enzymeWrapper.find('div#white');
 
       expect(div).toHaveLength(1);
     });
 
     describe('Title element', () => {
-      const title = enzymeWrapper.find('h2');
+      const title = enzymeWrapper.find('h4');
 
-      it('renders h2 element', () => {
+      it('renders h4 element', () => {
         expect(title).toHaveLength(1);
       });
 
       it('renders with the correct props', () => {
         const expectedProps = {
-          children: props.title,
-          className: 'full-post__title'
+          children: props.title
         };
 
         expect(title.props()).toEqual(expectedProps);
@@ -45,17 +44,16 @@ describe('components', () => {
     });
 
     describe('Date element', () => {
-      const date = enzymeWrapper.find('h3');
+      const date = enzymeWrapper.find('bd');
 
-      it('renders h3 element', () => {
+      it('renders bd element', () => {
         expect(date).toHaveLength(1);
       });
 
       it('renders with the correct props', () => {
         const formattedDate = new Date(props.created_at);
         const expectedProps = {
-          children: formattedDate.toDateString(),
-          className: 'full-post__date'
+          children: formattedDate.toDateString()
         };
 
         expect(date.props()).toEqual(expectedProps);
@@ -63,16 +61,17 @@ describe('components', () => {
     });
 
     describe('Content element', () => {
-      const content = enzymeWrapper.find('div.full-post__content');
+      const content = enzymeWrapper.find('div.post-content');
 
       it('renders the element', () => {
         expect(content).toHaveLength(1);
       });
 
       it('renders with the correct props', () => {
+        const postContent = <p>{ props.content }</p>;
         const expectedProps = {
-          children: props.content,
-          className: 'full-post__content'
+          children: postContent,
+          className: 'post-content'
         };
 
         expect(content.props()).toEqual(expectedProps);
@@ -88,8 +87,7 @@ describe('components', () => {
 
       it('renders with the correct props', () => {
         const expectedProps = {
-          children: 'Back to Post List',
-          className: 'btn btn-primary',
+          children: '# Back',
           replace: false,
           to: '/'
         };
