@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import FullPost from './FullPost';
-
-const formattedDate = date => {
-  const formatted = new Date(date);
-  return formatted.toDateString();
-};
+import formattedDate from '../common/formattedDate';
 
 const Post = ({ id, title, created_at }) => (
   <div className="container">
